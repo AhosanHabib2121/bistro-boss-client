@@ -28,7 +28,7 @@ const Menu = () => {
             {/* cover section here  */}
             <Cover
                 bgImg={menuImage}
-                height='600px'
+
                 title='OUR MENU'
                 shortDes='Would you like to try a dish?'
             />

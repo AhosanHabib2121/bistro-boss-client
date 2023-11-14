@@ -1,6 +1,6 @@
 import { Parallax } from 'react-parallax';
 
-const Cover = ({ bgImg, height, title, shortDes }) => {
+const Cover = ({ bgImg, title, shortDes }) => {
     
     return (
         <Parallax
@@ -9,7 +9,7 @@ const Cover = ({ bgImg, height, title, shortDes }) => {
             bgImageAlt="the menu"
             strength={-200}
         >
-                <div className={`hero h-[${height}]`} >
+            <div className={'hero h-[600px]'} >
                     <div className="hero-overlay bg-opacity-60"></div>
                     <div className="hero-content text-center text-neutral-content">
                         <div className="max-w-md">

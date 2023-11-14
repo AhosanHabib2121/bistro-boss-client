@@ -33,7 +33,7 @@ const Order = () => {
                 bgImg={orderImage}
                 title={'OUR Food'}
                 shortDes={'Would you like to try a dish?'}
-                height='600px'
+
             />
             {/* Food category */}
             <div className=' my-10'>

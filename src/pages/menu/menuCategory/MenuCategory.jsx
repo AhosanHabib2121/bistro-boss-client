@@ -9,7 +9,7 @@ const MenuCategory = ({ items, title, bgImg, shortDes }) => {
             {/* cover section here  */}
             {title && <Cover
                 bgImg={bgImg}
-                height='600px'
+
                 title={title}
                 shortDes={shortDes}
             />}
