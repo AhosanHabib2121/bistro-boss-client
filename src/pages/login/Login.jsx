@@ -4,6 +4,7 @@ import { AuthContext } from '../../provider/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
+import SocialLogin from '../shared/socialLogin/SocialLogin';
 
 const Login = () => {
     const [disabled, setDisabled] = useState(true)
@@ -94,8 +95,13 @@ const Login = () => {
                                 <input disabled={disabled} className="btn btn-primary" type="submit" value='Login' />
                             </div>
                         </form>
-                        <div className=' text-center mb-4'>
+                        <div className=' text-center mb-2'>
                             <p>Create a new account? <Link to='/register' className='text-yellow-700 underline'>Register</Link></p>
+                        </div>
+                        <div className="divider mx-6"></div>
+                        {/* google login here */}
+                        <div className=' mb-4 text-center'>
+                            <SocialLogin />
                         </div>
                     </div>
                 </div>

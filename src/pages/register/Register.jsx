@@ -4,26 +4,39 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+import SocialLogin from "../shared/socialLogin/SocialLogin";
 
 const Register = () => {
     const { register, handleSubmit, reset, formState: { errors }, } = useForm();
     const { createAccount, profileUpdate } = useContext(AuthContext);
     const navigate = useNavigate();
+    const axiosPublic = useAxiosPublic();
 
     const onSubmit = (data) => {
         createAccount(data.email, data.password)
-            .then(result => {
+            .then(() => {
                 profileUpdate(data.name, data.photoUrl)
                     .then(() => {
-                        reset();
-                        Swal.fire({
-                            position: "top-end",
-                            icon: "success",
-                            title: "User create successfully",
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                        navigate('/')
+                        const userData = {
+                            name: data.name,
+                            email: data.email
+                        }
+                        axiosPublic.post('/api/user', userData)
+                            .then(res => {
+                                if(res.data.insertedId){
+                                    reset();
+                                    Swal.fire({
+                                        position: "top-end",
+                                        icon: "success",
+                                        title: "User create successfully",
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                                    navigate('/')
+                                }
+                            })
+                   
                     })
                     .catch(error => console.log(error))
             })
@@ -69,11 +82,15 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" {...register("password", { required: true, minLength: 6, maxLength: 20, pattern:/(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{6}/ })} name="password" placeholder="password" className="input input-bordered" />
-                                {errors.password?.type === "required" && <span className=" text-red-500 mt-1">Password is required</span>}
+                                <input type="password" {...register("password", { required: true, minLength: 6, maxLength: 20, })}
+                                    // pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{6}/ 
+                                    name="password" placeholder="password" className="input input-bordered" />
+                                {/* password authentication */}
+                                {/* {errors.password?.type === "required" && <span className=" text-red-500 mt-1">Password is required</span>}
                                 {errors.password?.type === "minLength" && <span className=" text-red-500 mt-1">Password must be 6 characters</span>}
                                 {errors.password?.type === "maxLength" && <span className=" text-red-500 mt-1">Password must be less then 20 characters</span>}
-                                {errors.password?.type === "pattern" && <span className=" text-red-500 mt-1">Password must be one uppercase one lowercase one number and one special characters</span>}
+                                {errors.password?.type === "pattern" && <span className=" text-red-500 mt-1">Password must be one uppercase one lowercase one number and one special characters</span>} */}
+
                             </div>
                             <div className="form-control mt-6">
                                 <input type="submit" className="btn btn-primary" value='Sign up'/>
@@ -81,6 +98,11 @@ const Register = () => {
                         </form>
                         <div className=' text-center mb-4'>
                             <p>Already have an account? <Link to='/login' className='text-yellow-700 underline'>Login</Link></p>
+                        </div>
+                        <div className="divider mx-6"></div>
+                        {/* google login here */}
+                        <div className=' mb-4 text-center'>
+                            <SocialLogin />
                         </div>
                     </div>
                 </div>

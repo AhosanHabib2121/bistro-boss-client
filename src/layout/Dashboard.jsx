@@ -1,14 +1,20 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { BsCart4 } from "react-icons/bs";
 import { FaAd, FaCalendar, FaHome, FaList, FaSearch } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 
 const Dashboard = () => {
+
+    // TODO: get isAdmin value from the database
+    const isAdmin = true;
+
     return (
         <div className="flex">
             {/*dashboard sidebar section */}
             <div>
                 <div className=" w-64 min-h-screen bg-[#D1A054]">
                     <ul className=" menu p-4 space-y-4">
+                        {/* user site here */}
                         <li>
                             <NavLink to='/dashboard/userHome'>
                                 <FaHome className=" text-xl" />
@@ -35,6 +41,7 @@ const Dashboard = () => {
                                 My Bookings</NavLink>
                         </li>
                         <div className="divider"></div>
+                        {/* client site here */}
                         <li>
                             <NavLink to='/'>
                                 <FaHome className=" text-xl" />
@@ -44,6 +51,11 @@ const Dashboard = () => {
                             <NavLink to='/order/salad'>
                                 <FaSearch className=" text-xl" />
                                 Menu</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to='/order/salad'>
+                                <MdEmail className='text-xl'/>
+                                Contact</NavLink>
                         </li>
                     </ul>
                 </div>

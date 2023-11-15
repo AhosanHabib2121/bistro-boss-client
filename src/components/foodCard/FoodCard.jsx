@@ -53,14 +53,14 @@ const FoodCard = ({item}) => {
         }
     }
     return (
-        <div>
-            <div className="card bg-base-100 shadow-xl">
+        <div className="">
+            <div className="card bg-base-100 shadow-xl h-full">
                 <figure><img src={image} className=" w-full" alt="not found" /></figure>
                 <p className=" absolute right-0 mr-4 mt-4 px-3 bg-[#111827] text-white">${ price}</p>
-                <div className="card-body flex flex-col items-center">
+                <div className="card-body items-center">
                     <h2 className="card-title text-center">{name}</h2>
-                    <p>{recipe}</p>
-                    <div className="card-actions justify-end">
+                    <p className="">{recipe}</p>
+                    <div className="card-actions justify-end items-end">
                         <button onClick={handleAddToCart} className="btn btn-outline hover:text-[#BB8506]  border-0 border-b-4 text-[#BB8506] border-[#BB8506]">
                             Add to cart
                         </button>
