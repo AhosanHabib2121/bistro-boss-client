@@ -24,7 +24,6 @@ const Login = () => {
         const password = form.password.value;
         loginAccount(email, password)
             .then(result => {
-                console.log(result.user)
                 Swal.fire({
                     title: "Login successfully",
                     showClass: {
