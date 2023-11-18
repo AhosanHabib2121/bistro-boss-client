@@ -64,7 +64,7 @@ const AllUsers = () => {
                 <p className=" text-3xl font-bold">Total user: {users?.length} </p>
             </div>
             {/* user table here */}
-            <div className="overflow-x-auto rounded-lg">
+            <div className="overflow-x-auto h-screen rounded-lg">
                 <table className="table table-zebra ">
                     {/* head */}
                     <thead className=" bg-[#D1A054] text-white text-lg">

@@ -42,7 +42,7 @@ const Cart = () => {
                 <button className=" btn btn-secondary ">Pay</button>
             </div>
             {/* table content here */}
-            <div className="overflow-x-auto mt-5">
+            <div className="overflow-x-auto h-screen mt-5">
                 <table className="table">
                     {/* head */}
                     <thead>

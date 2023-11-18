@@ -12,8 +12,8 @@ const Dashboard = () => {
     return (
         <div className="flex">
             {/*dashboard sidebar section */}
-            <div>
-                <div className=" w-64 min-h-screen bg-[#D1A054]">
+            <div className=" w-64">
+                <div className="h-full bg-[#D1A054] ">
                     <ul className=" menu p-4 space-y-4">
                         {/* admin and user dashboard site here */}
                         {
@@ -97,7 +97,7 @@ const Dashboard = () => {
                 </div>
             </div>
             {/* dashboard main content section */}
-            <div className=" flex-1 p-10">
+            <div className=" flex-1 p-10 ">
                 <Outlet/>
             </div>
         </div>
