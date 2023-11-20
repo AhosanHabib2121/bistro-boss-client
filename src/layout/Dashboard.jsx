@@ -1,7 +1,7 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { BsCart4 } from "react-icons/bs";
 import { FaAd, FaBook, FaCalendar, FaHome, FaList, FaSearch, FaUsers, FaUtensils} from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
+import { MdEmail, MdPayments } from "react-icons/md";
 import useAdmin from "../hooks/useAdmin";
 
 const Dashboard = () => {
@@ -54,6 +54,11 @@ const Dashboard = () => {
                                         <NavLink to='/dashboard/reservation'>
                                             <FaCalendar className=" text-xl" />
                                             Reservation</NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to='/dashboard/paymentHistory'>
+                                            <MdPayments className=" text-xl" />
+                                            Payment History</NavLink>
                                     </li>
                                     <li>
                                         <NavLink to='/dashboard/cart'>
