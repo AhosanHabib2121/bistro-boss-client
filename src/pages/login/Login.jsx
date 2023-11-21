@@ -13,9 +13,9 @@ const Login = () => {
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
 
-    useEffect(() => {
-        loadCaptchaEnginge(6);
-    },[])
+    // useEffect(() => {
+    //     loadCaptchaEnginge(6);
+    // },[])
 
     const handleLogin = e => {
         e.preventDefault();
@@ -46,15 +46,15 @@ const Login = () => {
             .catch(error => console.log(error))
     }
 
-    const handleValidate = (e) => {
-        const userCaptchaValue = e.target.value;
-        if (validateCaptcha(userCaptchaValue)) {
-            setDisabled(false)
-        }
-        else {
-            setDisabled(true)
-        }
-    }
+    // const handleValidate = (e) => {
+    //     const userCaptchaValue = e.target.value;
+    //     if (validateCaptcha(userCaptchaValue)) {
+    //         setDisabled(false)
+    //     }
+    //     else {
+    //         setDisabled(true)
+    //     }
+    // }
     return (
         <>
             {/* website naming title */}
@@ -84,14 +84,15 @@ const Login = () => {
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
                             </div>
-                            <div className="form-control">
+                            {/* <div className="form-control">
                                 <label className="label">
                                     <LoadCanvasTemplate />
                                 </label>
                                 <input type="text" onBlur={handleValidate}  name="captcha" placeholder="type here" className="input input-bordered" required />
-                            </div>
+                            </div> */}
                             <div className="form-control mt-6">
-                                <input disabled={disabled} className="btn btn-primary" type="submit" value='Login' />
+                                {/* disabled={disabled} */}
+                                <input  className="btn btn-primary" type="submit" value='Login' />
                             </div>
                         </form>
                         <div className=' text-center mb-2'>
